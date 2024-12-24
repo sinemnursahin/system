@@ -1,0 +1,75 @@
+/* Genel Ayarlar */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #E9D5FF 0%, #C4B5FD 100%);
+    color: #4C1D95;
+    text-align: center;
+}
+
+/* Başarı Konteyneri */
+.success-container {
+    background: rgba(255, 255, 255, 0.4);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.15);
+    backdrop-filter: blur(8px);
+    max-width: 450px;
+    width: 90%;
+    transform: translateY(0);
+    animation: container-appear 0.6s ease-out;
+}
+
+@keyframes container-appear {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Başlık */
+.success-container h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: #6D28D9;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Açıklama */
+.success-container p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    color: #5B21B6;
+}
+
+/* Ana Sayfa Dönüş Butonu */
+.home-button {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #8B5CF6;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+}
+
+.home-button:hover {
+    background-color: #7C3AED;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+}

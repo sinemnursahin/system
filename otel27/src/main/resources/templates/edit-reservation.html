@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezervasyon Düzenle</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-4">
+    <h2>Rezervasyon Düzenle</h2>
+
+    <div th:if="${error}" class="alert alert-danger" role="alert">
+        <span th:text="${error}"></span>
+    </div>
+
+    <form th:action="@{/admin/edit-reservation/{id}(id=${reservation.id})}" method="post">
+        <div class="mb-3">
+            <label for="roomId" class="form-label">Oda Seçin:</label>
+            <select class="form-control" id="roomId" name="roomId" required>
+                <option th:each="room : ${rooms}"
+                        th:value="${room.id}"
+                        th:text="${room.name}"
+                        th:selected="${room.id == reservation.room.id}">
+                </option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="reservationDate" class="form-label">Giriş Tarihi:</label>
+            <input type="date" class="form-control" id="reservationDate" name="reservationDate" 
+                   th:value="${#temporals.format(reservation.reservationDate, 'yyyy-MM-dd')}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="endDate" class="form-label">Çıkış Tarihi:</label>
+            <input type="date" class="form-control" id="endDate" name="endDate" 
+                   th:value="${#temporals.format(reservation.endDate, 'yyyy-MM-dd')}" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Güncelle</button>
+        <a href="/admin/manage-reservations" class="btn btn-secondary">İptal</a>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
